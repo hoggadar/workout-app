@@ -78,7 +78,7 @@ export const getExerciseLog = asyncHandler(async (req, res) => {
 
   const prevExerciseLog = await prisma.exerciseLog.findFirst({
     where: {
-      exerciseId: exerciseLog.exercise.id,
+      exerciseId: exerciseLog.exerciseId,
       userId: req.user.id,
       isCompleted: true
     },

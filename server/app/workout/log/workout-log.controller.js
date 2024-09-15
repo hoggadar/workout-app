@@ -11,7 +11,6 @@ export const createWorkoutLog = asyncHandler(async (req, res) => {
     where: {
       id: workoutId
     },
-
     include: {
       exercises: true
     }
@@ -106,11 +105,10 @@ export const getWorkoutLog = asyncHandler(async (req, res) => {
 // @route   PATCH /api/workouts/log/complete/:id
 // @access  Private
 export const completeWorkoutLog = asyncHandler(async (req, res) => {
-  const logId = +req.params.id
   try {
     const workoutLog = await prisma.workoutLog.update({
       where: {
-        id: logId
+        id: +req.params.id
       },
       data: {
         isCompleted: true
@@ -119,6 +117,6 @@ export const completeWorkoutLog = asyncHandler(async (req, res) => {
     res.json(workoutLog)
   } catch (error) {
     res.status(404)
-    throw new Error('Workout log not found!')
+    throw new Error('Workout log not found')
   }
 })

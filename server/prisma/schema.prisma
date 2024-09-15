@@ -8,36 +8,35 @@ datasource db {
 }
 
 model User {
-  id          Int           @id @default(autoincrement())
-  createdAt   DateTime      @default(now()) @map("created_at")
-  updatedAt   DateTime      @updatedAt @map("updated_at")
-  email       String        @unique
-  name        String
-  password    String
-  images      String[]
-  ExerciseLog ExerciseLog[]
-  WorkoutLog  WorkoutLog[]
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+  email        String        @unique
+  name         String
+  password     String
+  images       String[]
+  exerciseLogs ExerciseLog[]
+  workoutLogs  WorkoutLog[]
 }
 
 model Workout {
-  id         Int          @id @default(autoincrement())
-  createdAt  DateTime     @default(now()) @map("created_at")
-  updatedAt  DateTime     @updatedAt @map("updated_at")
-  name       String
-  exercises  Exercise[]
-  WorkoutLog WorkoutLog[]
+  id          Int          @id @default(autoincrement())
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+  name        String
+  exercises   Exercise[]
+  workoutLogs WorkoutLog[]
 }
 
 model Exercise {
-  id            Int          @id @default(autoincrement())
-  createdAt     DateTime     @default(now()) @map("created_at")
-  updatedAt     DateTime     @updatedAt @map("updated_at")
-  name          String
-  times         Int
-  iconPath      String       @map("icon_path")
-  workouts      Workout[]
-  ExerciseLog   ExerciseLog? @relation(fields: [exerciseLogId], references: [id])
-  exerciseLogId Int?         @map("exercise_log_id")
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+  name         String
+  times        Int
+  iconPath     String        @map("icon_path")
+  workouts     Workout[]
+  exerciseLogs ExerciseLog[]
 }
 
 model ExerciseLog {
@@ -50,7 +49,8 @@ model ExerciseLog {
   userId       Int?           @map("user_id")
   workoutLog   WorkoutLog?    @relation(fields: [workoutLogId], references: [id])
   workoutLogId Int?           @map("workout_log_id")
-  exercise     Exercise[]
+  exercise     Exercise?      @relation(fields: [exerciseId], references: [id])
+  exerciseId   Int?           @map("exercise_id")
 
   @@map("Exercise_log")
 }

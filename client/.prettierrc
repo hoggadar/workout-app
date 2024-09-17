@@ -5,5 +5,14 @@
   "semi": false,
   "singleQuote": true,
   "arrowParens": "avoid",
-  "jsxSingleQuote": true
+  "jsxSingleQuote": true,
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "/hooks/",
+    "/components/",
+    "^../(.*)",
+    "^./(.*)"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

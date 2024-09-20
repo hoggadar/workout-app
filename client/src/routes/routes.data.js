@@ -17,12 +17,12 @@ export const routes = [
   {
     path: '/new-workout',
     component: NewWorkout,
-    isAuth: false
+    isAuth: true
   },
   {
     path: '/profile',
     component: Profile,
-    isAuth: false
+    isAuth: true
   } /*
 	{
 		path: '/new-exercise',

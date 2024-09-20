@@ -22,7 +22,7 @@ function Header({ backLink = '/' }) {
       ) : (
         <button
           onClick={() => {
-            navigate('/profile')
+            navigate(isAuth ? '/profile' : '/auth')
           }}
         >
           <SlUser fill='#fff' fontSize={25} />

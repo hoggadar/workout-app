@@ -6,6 +6,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: $default-font;
   &:before,
   &:after {
     -webkit-box-sizing: border-box;
@@ -15,8 +16,6 @@
   &:focus {
     outline: none;
   }
-
-  font-family: $default-font;
 }
 
 *::-webkit-input-placeholder {

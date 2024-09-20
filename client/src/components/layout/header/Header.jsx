@@ -1,20 +1,20 @@
-import { useAuth } from '../../../hooks/useAuth'
 import styles from './Header.module.scss'
 import Burger from '../burger/Burger.jsx'
 import { IoMdArrowBack } from 'react-icons/io'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { SlUser } from 'react-icons/sl'
+import { useAuth } from '../../../hooks/useAuth.js'
 
 function Header({ backLink = '/' }) {
+  const { isAuth } = useAuth()
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  const { isAuth } = useAuth()
   return (
     <header className={styles.header}>
-      {pathname !== '/' ? (
+      {pathname !== '/' || (pathname !== '/auth' && !isAuth) ? (
         <button
           onClick={() => {
-            navigate(backLink)
+            navigate(isAuth ? backLink : '/auth')
           }}
         >
           <IoMdArrowBack fill={'#fff'} fontSize={29} />
@@ -22,13 +22,13 @@ function Header({ backLink = '/' }) {
       ) : (
         <button
           onClick={() => {
-            navigate(isAuth ? '/profile' : '/auth')
+            navigate('/profile')
           }}
         >
           <SlUser fill='#fff' fontSize={25} />
         </button>
       )}
-      <Burger />
+      {isAuth && <Burger />}
     </header>
   )
 }

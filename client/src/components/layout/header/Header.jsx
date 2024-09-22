@@ -11,24 +11,28 @@ function Header({ backLink = '/' }) {
   const navigate = useNavigate()
   return (
     <header className={styles.header}>
-      {pathname !== '/' || (pathname !== '/auth' && !isAuth) ? (
-        <button
-          onClick={() => {
-            navigate(isAuth ? backLink : '/auth')
-          }}
-        >
-          <IoMdArrowBack fill={'#fff'} fontSize={29} />
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            navigate('/profile')
-          }}
-        >
-          <SlUser fill='#fff' fontSize={25} />
-        </button>
+      {isAuth && (
+        <>
+          {pathname === '/' && isAuth ? (
+            <button
+              onClick={() => {
+                navigate('/profile')
+              }}
+            >
+              <SlUser fill='#fff' fontSize={25} />
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                navigate(isAuth ? backLink : '/auth')
+              }}
+            >
+              <IoMdArrowBack fill='#fff' fontSize={29} />
+            </button>
+          )}
+          <Burger />
+        </>
       )}
-      {isAuth && <Burger />}
     </header>
   )
 }

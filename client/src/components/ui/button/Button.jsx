@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import styles from './Button.module.scss'
 
-function Button({ children, clickHandler, size = 'xl' }) {
+function Button({ children, clickHandler = null, size = 'xl' }) {
   return (
     <div className={styles.wrapper}>
       <button

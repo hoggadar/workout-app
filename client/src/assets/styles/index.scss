@@ -7,12 +7,15 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: $default-font;
+  letter-spacing: 0.5px;
+
   &:before,
   &:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
+
   &:focus {
     outline: none;
   }
@@ -100,4 +103,9 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+.error {
+  color: #8d2b3d;
+  font-size: 1rem;
 }

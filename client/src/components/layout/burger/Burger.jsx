@@ -8,7 +8,7 @@ function Burger() {
   const { isShow, setIsShow, ref } = useOnClickOutside(false)
   return (
     <div className={styles.wrapper} ref={ref}>
-      <button onClick={() => setIsShow(!isShow)}>
+      <button onClick={() => setIsShow(!isShow)} aria-label="Open menu">
         {isShow ? <IoClose /> : <CgMenuRight />}
       </button>
       <Menu isShow={isShow} setIsShow={setIsShow} />

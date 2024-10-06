@@ -1,6 +1,6 @@
 import Layout from '../../layout/Layout.jsx'
 import { useMutation } from '@tanstack/react-query'
-import ExerciseService from '../../../services/exercise.service.js'
+import ExerciseService from '../../../services/exercise/exercise.service.js'
 import { Controller, useForm } from 'react-hook-form'
 import Button from '../../ui/button/Button.jsx'
 import Alert from '../../ui/alert/Alert.jsx'

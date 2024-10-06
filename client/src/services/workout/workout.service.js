@@ -1,6 +1,6 @@
 import { ax } from '../../api.js'
 
-const WORKOUTS = '/workouts'
+export const WORKOUTS = '/workouts'
 
 class WorkoutService {
   async getAll() {

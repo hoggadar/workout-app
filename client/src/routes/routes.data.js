@@ -3,6 +3,9 @@ import Home from '../components/screens/home/Home.jsx'
 import NewWorkout from '../components/screens/new-workout/NewWorkout.jsx'
 import Profile from '../components/screens/profile/Profile.jsx'
 import NewExercise from '../components/screens/new-exercise/NewExercise.jsx'
+import Workout from '../components/screens/workouts/detail/Workout.jsx'
+import ListWorkouts from '../components/screens/workouts/list/ListWorkouts.jsx'
+import ExerciseLog from "../components/screens/exercise-log/ExerciseLog.jsx";
 
 export const routes = [
   {
@@ -16,7 +19,7 @@ export const routes = [
     isAuth: true
   },
   {
-    path: '/new-workout',
+    path: '/new-workouts',
     component: NewWorkout,
     isAuth: true
   },
@@ -27,27 +30,22 @@ export const routes = [
   },
   {
     path: '/new-exercise',
-
     component: NewExercise,
     isAuth: true
+  },
+  {
+    path: '/workouts/:id',
+    component: Workout,
+    isAuth: true
+  },
+  {
+    path: '/workouts',
+    component: ListWorkouts,
+    isAuth: true
+  },
+  {
+    path: '/exercise/:id',
+    component: ExerciseLog,
+    isAuth: true
   }
-
-  // {
-  //   path: '/workout/:id',
-  //
-  //   component: SingleWorkout,
-  //   isAuth: true
-  // },
-  // {
-  //   path: '/workouts',
-  //
-  //   component: ListWorkouts,
-  //   isAuth: true
-  // },
-  // {
-  //   path: '/exercise/:id',
-  //
-  //   component: SingleExercise,
-  //   isAuth: true
-  // }
 ]

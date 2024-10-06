@@ -16,7 +16,7 @@ export const useNewWorkout = () => {
   })
 
   const { isSuccess, error, isLoading, mutate } = useMutation(
-    ['create workout'],
+    ['create workouts'],
     body => WorkoutService.create(body),
     {
       onSuccess: () => {

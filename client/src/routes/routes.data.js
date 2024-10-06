@@ -19,7 +19,7 @@ export const routes = [
     isAuth: true
   },
   {
-    path: '/new-workouts',
+    path: '/new-workout',
     component: NewWorkout,
     isAuth: true
   },

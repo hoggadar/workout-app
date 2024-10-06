@@ -4,7 +4,7 @@ const ExerciseError = ({ errors }) => {
   return (
     <div style={{ width: '90%', margin: '0 auto' }}>
       {errors.map((error, index) => (
-        <Alert key={error + index} type='error' text={error} />
+        error ? <Alert key={error + index} type='error' text={error} /> : null
       ))}
     </div>
   )

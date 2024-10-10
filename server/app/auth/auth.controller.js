@@ -7,6 +7,7 @@ import { generateToken } from './generate-token.js'
 // @route   POST /api/auth/login
 // @access  Public
 export const login = asyncHandler(async (req, res) => {
+  console.log(req.body)
   const { email, password } = req.body
   const user = await prisma.user.findUnique({
     where: {
